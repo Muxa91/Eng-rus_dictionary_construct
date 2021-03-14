@@ -9,7 +9,8 @@ def text_formatting():
     text = input_text.get('1.0', 'end-1c')
     text=textwrap.shorten(text, width=99999999999)
     text=textwrap.fill(text)
-    word_list = re.sub(r'[^\w\s]+|[\d]+', r'', text).replace('\n', '').split(' ')
+    word_list = re.sub(r'[^\w\s]+|[\d]+', r'', text).replace('\n', '')
+    word_list = textwrap.shorten(word_list, width=99999999999).split(' ')
     print(word_list)
     return word_list
 
