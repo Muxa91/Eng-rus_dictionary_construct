@@ -3,7 +3,7 @@ import re
 from googletrans import Translator
 import textwrap
 
-# Берем напечатаный текст в input_text и разбивем его на слова удаляя все символы  и пробелы FIX: поставить проверку на
+# Берем напечатаный текст в input_text и разбивем его на слова удаляя все символы  и пробелы
 # наличие текста
 def text_formatting():
     text = input_text.get('1.0', 'end-1c')
@@ -16,27 +16,33 @@ def text_formatting():
 
 # Переводим и записываем в файл "Текст"
 def translate_list():
-    translator = Translator()
-    list = text_formatting()
-    result = []
-    for word in list:
-        r = open('text.txt', 'r', encoding='UTF-8')
-        old_text = r.read().split('\n')
-        r.close()
-        translation = translator.translate(word, src='en', dest='ru').text
-        if word == translation:
-            pass
-        else:
-            dict = str({word: translation})
-            if str(dict in old_text) == 'True':
+    # проверка на наличие текста в input_text
+    if input_text.get('1.0', 'end-1c') == '':
+        pass
+    # перевод текста вывод в output_text и сохранение в text.txt
+    else:
+        translator = Translator()
+        list = text_formatting()
+        result = []
+        for word in list:
+            r = open('text.txt', 'r', encoding='UTF-8')
+            old_text = r.read().split('\n')
+            r.close()
+            translation = translator.translate(word, src='en', dest='ru').text
+            if word == translation:
                 pass
             else:
-                result.append(dict)
-                f = open('text.txt', 'a', encoding='UTF-8')
-                f.write(str(dict) + '\n')
-                f.close()
-                print(dict)
-    return result
+                dict = str(word + '  -  ' + translation)
+                if str(dict in old_text) == 'True':
+                    pass
+                else:
+                    output_text.insert(0.0, dict + '\n')
+                    result.append(dict)
+                    f = open('text.txt', 'a', encoding='UTF-8')
+                    f.write(str(dict) + '\n')
+                    f.close()
+                    print(dict)
+        return result
 
 
 window = tk.Tk()

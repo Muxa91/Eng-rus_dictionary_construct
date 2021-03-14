@@ -1,0 +1,37 @@
+
+_tkinterTclError--_tkinter tclerror
+bad--Плохо
+text--текст
+index--индекс
+END--КОНЕЦ
+I--я
+have--имеют
+imported--импортировано
+a--а.
+list--список
+of--из
+names--имен
+from--из
+csv--CSV.
+file--файл
+and--и
+want--хотеть
+to--к
+print--Распечатать
+eachname--каждая
+new--новый
+line--линия
+how--как
+would--бы
+i--я
+go--идти
+about--о
+this--это
+as--в качестве
+the--то
+program--программа
+wroteprints--WrotePrints
+it--Это
+all--все
+on--на
+one--один
