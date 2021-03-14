@@ -20,8 +20,15 @@ def translate_list():
     # проверка на наличие текста в input_text
     if input_text.get('1.0', 'end-1c') == '':
         pass
-    # перевод текста вывод в output_text и сохранение в text.txt
+
     else:
+        # Создание файла text.txt
+
+        file = open(r"text.txt", "w")
+        file.close()
+
+        # Перевод слов и сохранение их
+
         translator = Translator()
         list = text_formatting()
         result = []
